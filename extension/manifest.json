@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Email Assistant",
+  "version": "1.0",
+  "description": "A simple extension to assist with Gmail.",
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["http://localhost:8080/*", "*://mail.google.com/*"],
+  "action": {
+    "default_title": "Email Assistant"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://mail.google.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_end"
+    }
+  ],
+    "web_accessible_resources":[ {
+        "resources": ["icon/*"],
+        "matches": ["*://mail.google.com/*"]
+    }]
+}
