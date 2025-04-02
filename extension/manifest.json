@@ -4,7 +4,7 @@
   "version": "1.0",
   "description": "A simple extension to assist with Gmail.",
   "permissions": ["scripting", "activeTab"],
-  "host_permissions": ["http://localhost:8080/*", "*://mail.google.com/*"],
+  "host_permissions": ["https://email-assistant-latest.onrender.com/*", "*://mail.google.com/*"],
   "action": {
     "default_title": "Email Assistant"
   },

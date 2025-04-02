@@ -77,8 +77,6 @@ function injectButton() {
     return;
   }
 
-  console.log("Toolbar found!");
-
   // Remove existing button and tone selector if they exist
   toolbar.querySelector(`.${AI_REPLY_BUTTON_CLASS}`)?.remove();
   toolbar.querySelector(`.${TONE_SELECTOR_CLASS}`)?.remove();
@@ -90,11 +88,6 @@ function injectButton() {
   toolbar.insertBefore(toneSelector, toolbar.firstChild);
   toolbar.insertBefore(button, toolbar.firstChild.nextSibling);
 
-  console.log("Injected AI Reply button and tone selector.");
-
-  // button.addEventListener("click", () => {
-  //   console.log("Button clicked!");
-  // })
 
   button.addEventListener("click", async () => {
     try {
@@ -104,16 +97,13 @@ function injectButton() {
       const emailContent = getEmailContent();
       const tone = toneSelector.value;
 
-      const response = await fetch("http://localhost:8080/email/generate", {
+      const response = await fetch("https://email-assistant-latest.onrender.com/email/generate", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ emailContent, tone }),
       });
-
-      button.textContent = "AI Reply";
-      button.disabled = false;
 
       if (response.status !== 200) {
         throw new Error("Failed to generate AI reply");
@@ -127,11 +117,13 @@ function injectButton() {
       );
       if (composer) {
         composer.focus();
+        composer.textContent = ""; // Clear the composer
         document.execCommand("insertText", false, reply);
       }
     } catch (error) {
       console.error("Error while generating AI reply:", error);
       alert("Failed to generate AI reply");
+    } finally{
       button.textContent = "AI Reply";
       button.disabled = false;
     }
