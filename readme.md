@@ -131,9 +131,8 @@ email-assistant/
 │   └── pom.xml
 ├── extension/
 │   ├── manifest.json
-│   ├── background.js
-│   ├── popup.html
-│   └── popup.js
+│   ├── content.js
+│   ├── content.css
 ```
 
 ---
