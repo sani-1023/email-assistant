@@ -25,7 +25,7 @@ This is an Email Assistant application. It provides an API to generate email res
 ### 1. Clone the Repository
 First, clone the Git repository to your local machine:
 ```bash
-git clone https://github.com/your-username/email-assistant.git
+git clone https://github.com/sani-1023/email-assistant.git
 cd email-assistant
 ```
 
