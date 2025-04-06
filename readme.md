@@ -1,6 +1,6 @@
 # Email Assistant 
 
-This is a plugin for Email Assistant that makes it easier to respond to emails in a variety of tones, such as professional, informal, or casual. It provides an API to generate email responses using external services. The application is built with Spring Boot and can be containerized using Docker. Additionally, it includes a Chrome extension for seamless integration, allowing users to interact with the backend directly from their browser.
+This is a chrome extension for Email Assistant that makes it easier to respond to emails in a variety of tones, such as professional, informal, or casual. It provides an API to generate email responses using external services. The application is built with Spring Boot and can be containerized using Docker. Additionally, it includes a Chrome extension for seamless integration, allowing users to interact with the backend directly from their browser.
 
 ---
 
