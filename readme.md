@@ -1,6 +1,6 @@
 # Email Assistant 
 
-This is an Email Assistant application. It provides an API to generate email responses using external services. The application is built with Spring Boot and can be containerized using Docker. Additionally, it includes a Chrome extension for seamless integration, allowing users to interact with the backend directly from their browser.
+This is a chrome extension for Email Assistant that makes it easier to respond to emails in a variety of tones, such as professional, informal, or casual. It provides an API to generate email responses using external services. The application is built with Spring Boot and can be containerized using Docker. Additionally, it includes a Chrome extension for seamless integration, allowing users to interact with the backend directly from their browser.
 
 ---
 
@@ -25,7 +25,7 @@ This is an Email Assistant application. It provides an API to generate email res
 ### 1. Clone the Repository
 First, clone the Git repository to your local machine:
 ```bash
-git clone https://github.com/your-username/email-assistant.git
+git clone https://github.com/sani-1023/email-assistant.git
 cd email-assistant
 ```
 
@@ -131,9 +131,8 @@ email-assistant/
 │   └── pom.xml
 ├── extension/
 │   ├── manifest.json
-│   ├── background.js
-│   ├── popup.html
-│   └── popup.js
+│   ├── content.js
+│   ├── content.css
 ```
 
 ---
