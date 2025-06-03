@@ -46,8 +46,30 @@ function createToneSelector() {
   const select = document.createElement("select");
   select.className = `T-I J-J5-Ji hG T-I-atl L3 ${TONE_SELECTOR_CLASS}`;
   select.setAttribute("aria-label", "Select tone");
-  select.style.cssText =
-    "margin-right: 10px; border-radius: 18px; padding: 8px;";
+  select.style.cssText = `
+    margin-right: 10px;
+    border-radius: 18px;
+    padding: 8px 20px;
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    text-align: center;
+    text-align-last: center;
+  `;
+
+  // Add the placeholder option
+  const placeholderOption = document.createElement("option");
+  placeholderOption.value = "";
+  placeholderOption.textContent = "Select Tone";
+  placeholderOption.disabled = true;
+  placeholderOption.selected = true;
+  placeholderOption.hidden = true; 
+  select.appendChild(placeholderOption);
 
   ["Professional", "Friendly", "Casual"].forEach((tone) => {
     const option = document.createElement("option");
@@ -88,22 +110,28 @@ function injectButton() {
   toolbar.insertBefore(toneSelector, toolbar.firstChild);
   toolbar.insertBefore(button, toolbar.firstChild.nextSibling);
 
-
   button.addEventListener("click", async () => {
     try {
-      button.textContent = "Generating...";
+      button.innerHTML = `Generating...<svg style="vertical-align:middle;margin-right:6px" width="18" height="18" viewBox="0 0 50 50">
+  <circle cx="25" cy="25" r="20" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-dasharray="31.4 31.4" transform="rotate(-90 25 25)">
+    <animateTransform attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="1s" repeatCount="indefinite"/>
+  </circle>
+</svg>`;
       button.disabled = true;
 
       const emailContent = getEmailContent();
       const tone = toneSelector.value;
 
-      const response = await fetch("https://email-assistant-latest.onrender.com/email/generate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ emailContent, tone }),
-      });
+      const response = await fetch(
+        "https://email-assistant-latest.onrender.com/email/generate",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ emailContent, tone }),
+        }
+      );
 
       if (response.status !== 200) {
         throw new Error("Failed to generate AI reply");
@@ -123,7 +151,7 @@ function injectButton() {
     } catch (error) {
       console.error("Error while generating AI reply:", error);
       alert("Failed to generate AI reply");
-    } finally{
+    } finally {
       button.textContent = "AI Reply";
       button.disabled = false;
     }

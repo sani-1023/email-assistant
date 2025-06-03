@@ -143,5 +143,13 @@ The application uses `Slf4j` for logging. Logs are printed to the console and in
 
 ---
 
+## Preview
+
+![Email Assistant Preview 1](./preview_1.png)
+![Email Assistant Preview 2](./preview_2.png)
+![Email Assistant Preview 3](./preview_3.png)
+
+---
+
 ## Contact
 For questions or support, please contact [sanitalukder1998@gmail.com].
